@@ -53,4 +53,54 @@ var_dump($persona);
 exit;
     ?>
 
+chat//
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form action="consulta.php" method="POST">
+    <label>DNI</label>
+    <input type="text" name="DNI">
+
+    <button type="submit">Envíe su mensaje</button>
+  </form>
+
+  <?php
+  // Check if the form was submitted and the response is available
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($persona)) {
+  ?>
+  <div>
+    <h2>Resultado:</h2>
+    <label>Nombres:</label>
+    <input type="text" value="<?= $persona->nombres ?>" readonly>
+    <br>
+    <label>Apellido Paterno:</label>
+    <input type="text" value="<?= $persona->apellidoPaterno ?>" readonly>
+    <br>
+    <label>Apellido Materno:</label>
+    <input type="text" value="<?= $persona->apellidoMaterno ?>" readonly>
+    <br>
+    <label>Tipo de Documento:</label>
+    <input type="text" value="<?= $persona->tipoDocumento ?>" readonly>
+    <br>
+    <label>Número de Documento:</label>
+    <input type="text" value="<?= $persona->numeroDocumento ?>" readonly>
+    <br>
+    <label>Dígito Verificador:</label>
+    <input type="text" value="<?= $persona->digitoVerificador ?>" readonly>
+  </div>
+  <?php
+  }
+  ?>
+</body>
+</html>
+
+
+//
+
+
 Resultado: object(stdClass)#2 (6) { ["nombres"]=> string(12) "ERACLEO JUAN" ["apellidoPaterno"]=> string(7) "HUAMANI" ["apellidoMaterno"]=> string(7) "MENDOZA" ["tipoDocumento"]=> string(1) "1" ["numeroDocumento"]=> string(8) "46027897" ["digitoVerificador"]=> string(0) "" }
